@@ -49,7 +49,7 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] flex flex-col justify-between relative p-6 overflow-y-auto bg-grain pb-8">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] flex flex-col justify-between relative p-6 bg-grain pb-8">
       {/* Cinematic ambient glow */}
       <div className="absolute top-[-10%] right-[-10%] w-[120%] h-[50%] bg-gradient-to-b from-[#C46A2D]/15 via-[#8B7355]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 

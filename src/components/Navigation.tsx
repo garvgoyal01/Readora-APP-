@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { Home, Compass, Trophy, User } from "lucide-react";
-import { useReadoraStore } from "@/store/useReadoraStore";
+import { Home, BookOpen, Compass, User } from "lucide-react";
 
 interface NavigationProps {
   activeTab: string;
@@ -11,19 +9,16 @@ interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
-  const notifications = useReadoraStore((state) => state.notifications);
-  const unreadCount = notifications.filter((n) => !n.read).length;
-
   const tabs = [
     { id: "home", label: "Home", icon: Home },
+    { id: "leaderboard", label: "Library", icon: BookOpen },
     { id: "social", label: "Feed", icon: Compass },
-    { id: "leaderboard", label: "Leagues", icon: Trophy },
     { id: "profile", label: "Profile", icon: User },
   ];
 
   return (
-    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-40">
-      <div className="glass-panel rounded-2xl py-3 px-4 flex justify-between items-center shadow-lg shadow-black/40">
+    <nav className="fixed inset-x-0 bottom-0 z-50 h-16 border-t border-[#2a2a2a] bg-[#1a1a1a] px-4">
+      <div className="mx-auto flex h-full max-w-4xl items-center justify-between gap-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -32,41 +27,18 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className="relative p-2.5 rounded-xl transition-all duration-150 active:scale-[0.9] flex flex-col items-center gap-0.5 select-none"
+              className={`nav-button flex min-h-[44px] min-w-[64px] flex-1 flex-col items-center justify-center gap-1 rounded-3xl px-2 text-[11px] font-semibold transition-all duration-150 focus-visible:outline-none ${
+                isActive
+                  ? "text-[#F97316]"
+                  : "text-[#A8A29E]"
+              } ${isActive ? "bg-white/5" : "bg-transparent"}`}
             >
-              {/* Active Tab Glow/Background */}
-              {isActive && (
-                <motion.div
-                  layoutId="activeNavBackground"
-                  className="absolute inset-0 bg-[#C46A2D]/10 rounded-xl border border-[#C46A2D]/20"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-
-              <div className="relative">
-                <Icon
-                  className={`w-5 h-5 transition-all duration-200 ${
-                    isActive ? "text-[#C46A2D]" : "text-[#A8A29E]"
-                  }`}
-                />
-                
-                {/* Special Notification badge on Feed tab just for visual flare, or let's place it next to profile */}
-                {tab.id === "profile" && unreadCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#D97706] ring-2 ring-[#151515]" />
-                )}
-              </div>
-
-              <span
-                className={`text-[8px] font-semibold tracking-wider uppercase transition-colors ${
-                  isActive ? "text-[#C46A2D]" : "text-[#A8A29E]/60"
-                }`}
-              >
-                {tab.label}
-              </span>
+              <Icon className={`w-6 h-6 ${isActive ? "text-[#F97316]" : "text-[#A8A29E]"}`} />
+              <span>{tab.label}</span>
             </button>
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 };

@@ -30,7 +30,7 @@ export const LoginScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] flex flex-col justify-between p-6 relative overflow-y-auto bg-grain pb-8">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] flex flex-col justify-between p-6 relative bg-grain pb-8">
       {/* Cinematic ambient glow */}
       <div className="absolute top-[-10%] left-[-15%] w-[130%] h-[40%] bg-gradient-to-b from-[#7C2D12]/15 via-[#C46A2D]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 

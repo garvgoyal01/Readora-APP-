@@ -26,7 +26,7 @@ export const ProfileScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState<"reflections" | "quotes" | "milestones">("reflections");
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] pb-28 overflow-y-auto bg-grain relative">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] pb-28 bg-grain relative">
       
       {/* Cover Image Simulation */}
       <div className="h-32 bg-gradient-to-r from-[#7C2D12] via-[#C46A2D] to-[#8B7355] relative overflow-hidden">

@@ -19,7 +19,7 @@ export const LeaderboardScreen: React.FC<ScreenProps> = () => {
   const podiumArrangement = [topThree[1], topThree[0], topThree[2]];
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 overflow-y-auto bg-grain relative">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 bg-grain relative">
       {/* Cinematic Ambient Glow */}
       <div className="absolute top-[-5%] left-[-10%] w-[100%] h-[35%] bg-gradient-to-b from-[#C46A2D]/15 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none" />
 

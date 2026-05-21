@@ -51,7 +51,7 @@ export const NotificationsScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-8 overflow-y-auto bg-grain relative flex flex-col">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-8 bg-grain relative flex flex-col">
       {/* Cinematic Ambient Glow */}
       <div className="absolute top-[-5%] right-[-10%] w-[100%] h-[30%] bg-gradient-to-b from-[#8B7355]/15 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none" />
 

@@ -34,7 +34,7 @@ export const StreakScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 overflow-y-auto bg-grain relative">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 bg-grain relative">
       {/* Cinematic Ambient Glow */}
       <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[40%] bg-gradient-to-b from-[#D97706]/15 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none" />
 

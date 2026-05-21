@@ -34,7 +34,7 @@ export const HomeScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   const progressPercent = Math.min(100, Math.round((readMinsToday / dailyGoalMins) * 100));
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 overflow-y-auto bg-grain relative">
+    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] p-5 pb-28 bg-grain relative">
       {/* Cinematic Ambient Glow */}
       <div className="absolute top-[-5%] right-[-10%] w-[100%] h-[40%] bg-gradient-to-b from-[#C46A2D]/15 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none" />
 

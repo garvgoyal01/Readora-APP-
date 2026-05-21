@@ -20,6 +20,14 @@ export const metadata: Metadata = {
   description: "A premium mobile-first social reading and self-growth platform designed to help you read daily, share reflections, protect streaks, and grow closer. Duolingo meets Goodreads for aesthetic intellectuals.",
   keywords: ["reading habit", "self-growth", "streaks", "book tracker", "social reading", "journaling", "reflection"],
   authors: [{ name: "Readora Team" }],
+  themeColor: "#0F0F0F",
+  manifest: "/manifest.json",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
