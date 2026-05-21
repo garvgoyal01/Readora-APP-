@@ -43,9 +43,9 @@ export const SignupScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
       <div className="flex justify-center items-center gap-2 mt-4 relative z-10">
         <div className="w-11 h-11 rounded-2xl overflow-hidden border border-[#E6B566]/20 bg-[#151515]">
           <img
-            src="/logo.png"
+            src="/readora-logo.png"
             alt="Readora"
-            style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+            style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover', display: 'block' }}
           />
         </div>
         <span className="font-serif font-semibold tracking-widest text-[#F5F1E8] uppercase text-base">

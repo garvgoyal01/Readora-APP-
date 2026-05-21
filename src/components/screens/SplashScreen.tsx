@@ -17,9 +17,9 @@ export const SplashScreen = () => {
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-[#C46A2D] to-[#D97706] shadow-lg shadow-[#C46A2D]/25 overflow-hidden">
               <img
-                src="/logo.png"
+                src="/readora-logo.png"
                 alt="Readora"
-                style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+                style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover', display: 'block' }}
               />
             </div>
             <div className="text-left">

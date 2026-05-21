@@ -41,8 +41,12 @@ export default function Page() {
       <header className="fixed inset-x-0 top-0 z-50 h-14 border-b border-[#2a2a2a] bg-[#0F0F0F]/95 backdrop-blur-sm">
         <div className="mx-auto flex h-full items-center justify-start px-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#151515] border border-white/10">
-              <span className="text-lg font-serif text-[#F97316]">R</span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#151515] border border-white/10 overflow-hidden">
+              <img
+                src="/readora-logo.png"
+                alt="Readora"
+                style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover', display: 'block' }}
+              />
             </div>
             <p className="text-sm font-semibold tracking-[0.08em] text-[#F5F1E8]">Readora</p>
           </div>
