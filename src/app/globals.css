@@ -27,12 +27,13 @@
 
 html,
 body {
-  height: 100%;
-  min-height: 100%;
+  height: 100% !important;
+  min-height: 100% !important;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
   max-width: 100vw;
   background-color: #0F0F0F;
   color: #F5F1E8;
@@ -48,7 +49,8 @@ body {
 
 * {
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  scrollbar-width: none !important;
 }
 
 button,
@@ -72,22 +74,17 @@ button {
 
 /* Custom premium scrollbar style */
 ::-webkit-scrollbar {
-  display: none;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-scrollbar-width: none;
-
 ::-webkit-scrollbar-track {
-  background: #0F0F0F;
+  display: none !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252525;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #C46A2D;
+  display: none !important;
 }
 
 /* Custom styles for luxury glassmorphism */

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useReadoraStore } from "@/store/useReadoraStore";
 
@@ -18,14 +18,12 @@ import { ProfileScreen } from "@/components/screens/ProfileScreen";
 import { NotificationsScreen } from "@/components/screens/NotificationsScreen";
 import { SettingsScreen } from "@/components/screens/SettingsScreen";
 import { AdminDashboardScreen } from "@/components/screens/AdminDashboardScreen";
-import { SplashScreen } from "@/components/screens/SplashScreen";
 import { Navigation } from "@/components/Navigation";
 
 const topScreens = ["home", "leaderboard", "social", "profile"];
 
 export default function Page() {
   const { currentScreen, setScreen, isAuthenticated, login } = useReadoraStore();
-  const [isSplashVisible, setIsSplashVisible] = useState(true);
 
   useEffect(() => {
     const token = window.localStorage.getItem("readora_auth_token");
@@ -34,18 +32,9 @@ export default function Page() {
     }
   }, [isAuthenticated, login]);
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => setIsSplashVisible(false), 1200);
-    return () => window.clearTimeout(timer);
-  }, []);
-
   const handleNavigate = (screen: string) => {
     setScreen(screen);
   };
-
-  if (isSplashVisible) {
-    return <SplashScreen />;
-  }
 
   return (
     <div className="min-h-[100dvh] h-[100dvh] w-full overflow-hidden bg-[#0F0F0F] text-[#F5F1E8]">
