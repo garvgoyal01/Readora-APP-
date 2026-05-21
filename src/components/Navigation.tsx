@@ -11,8 +11,8 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
   const tabs = [
     { id: "home", label: "Home", icon: Home },
-    { id: "leaderboard", label: "Leaderboard", icon: Trophy },
     { id: "social", label: "Feed", icon: Compass },
+    { id: "leaderboard", label: "Leaderboard", icon: Trophy },
     { id: "profile", label: "Profile", icon: User },
   ];
 

@@ -50,17 +50,13 @@ export default function Page() {
   return (
     <div className="min-h-[100dvh] h-[100dvh] w-full overflow-hidden bg-[#0F0F0F] text-[#F5F1E8]">
       <header className="fixed inset-x-0 top-0 z-50 h-14 border-b border-[#2a2a2a] bg-[#0F0F0F]/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 text-sm font-semibold tracking-[0.12em] text-[#F5F1E8]">
+        <div className="mx-auto flex h-full items-center justify-start px-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#151515] border border-white/10">
               <span className="text-lg font-serif text-[#F97316]">R</span>
             </div>
-            <div>
-              <p className="text-[13px] font-semibold">Readora</p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[#A8A29E]">Mobile</p>
-            </div>
+            <p className="text-sm font-semibold tracking-[0.08em] text-[#F5F1E8]">Readora</p>
           </div>
-          <div className="text-[10px] uppercase tracking-[0.28em] text-[#A8A29E]">Focus • Read • Reflect</div>
         </div>
       </header>
 

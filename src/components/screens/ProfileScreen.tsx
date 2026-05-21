@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useReadoraStore } from "@/store/useReadoraStore";
-import { Bookmark, Award, Feather } from "lucide-react";
+import { Bookmark, Award, Feather, LogOut } from "lucide-react";
 
 interface ScreenProps {
   onNavigate: (screen: string) => void;
@@ -20,10 +20,16 @@ export const ProfileScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
     userFollowers,
     userFollowing,
     reflections,
-    savedQuotes
+    savedQuotes,
+    logout
   } = useReadoraStore();
 
   const [activeTab, setActiveTab] = useState<"reflections" | "quotes" | "milestones">("reflections");
+
+  const handleSignOut = () => {
+    logout();
+    onNavigate("landing");
+  };
 
   return (
     <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] pb-28 bg-grain relative">
@@ -183,6 +189,17 @@ export const ProfileScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Sign Out Button */}
+        <div className="pt-6 pb-4">
+          <button
+            onClick={handleSignOut}
+            className="w-full py-3.5 px-4 rounded-xl bg-[#ef4444]/10 hover:bg-[#ef4444]/20 border border-[#ef4444]/30 text-[#ef4444] text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sign Out</span>
+          </button>
         </div>
       </div>
     </div>
