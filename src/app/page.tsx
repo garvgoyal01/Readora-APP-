@@ -24,8 +24,15 @@ import { Navigation } from "@/components/Navigation";
 const topScreens = ["home", "leaderboard", "social", "profile"];
 
 export default function Page() {
-  const { currentScreen, setScreen } = useReadoraStore();
+  const { currentScreen, setScreen, isAuthenticated, login } = useReadoraStore();
   const [isSplashVisible, setIsSplashVisible] = useState(true);
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("readora_auth_token");
+    if (token && !isAuthenticated) {
+      login(token);
+    }
+  }, [isAuthenticated, login]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setIsSplashVisible(false), 1200);
@@ -87,7 +94,9 @@ export default function Page() {
         </div>
       </main>
 
-      <Navigation activeTab={topScreens.includes(currentScreen) ? currentScreen : ""} onTabChange={handleNavigate} />
+      {isAuthenticated && (
+        <Navigation activeTab={topScreens.includes(currentScreen) ? currentScreen : ""} onTabChange={handleNavigate} />
+      )}
     </div>
   );
 }

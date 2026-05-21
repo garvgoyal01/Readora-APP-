@@ -3,12 +3,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Feather, User, Mail, Lock, Sparkles, CheckSquare } from "lucide-react";
+import { useReadoraStore } from "@/store/useReadoraStore";
 
 interface ScreenProps {
   onNavigate: (screen: string) => void;
 }
 
 export const SignupScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
+  const login = useReadoraStore((state) => state.login);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +21,7 @@ export const SignupScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
     setIsLoading(true);
     // Simulate setup delay
     setTimeout(() => {
+      login("auth-token-demo");
       onNavigate("home");
     }, 1500);
   };
@@ -26,6 +29,7 @@ export const SignupScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   const handleDemoSignup = () => {
     setIsLoading(true);
     setTimeout(() => {
+      login("auth-token-demo");
       onNavigate("home");
     }, 800);
   };

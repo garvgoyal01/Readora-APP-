@@ -3,12 +3,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Feather, Mail, Lock, LogIn, Sparkles } from "lucide-react";
+import { useReadoraStore } from "@/store/useReadoraStore";
 
 interface ScreenProps {
   onNavigate: (screen: string) => void;
 }
 
 export const LoginScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
+  const login = useReadoraStore((state) => state.login);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +20,7 @@ export const LoginScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
     setIsLoading(true);
     // Simulate premium loading spinner
     setTimeout(() => {
+      login("auth-token-demo");
       onNavigate("home");
     }, 1200);
   };
@@ -25,6 +28,7 @@ export const LoginScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   const handleGuestLogin = () => {
     setIsLoading(true);
     setTimeout(() => {
+      login("auth-token-demo");
       onNavigate("home");
     }, 800);
   };

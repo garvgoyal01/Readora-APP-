@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Home, BookOpen, Compass, User } from "lucide-react";
+import { Home, Trophy, Compass, User } from "lucide-react";
 
 interface NavigationProps {
   activeTab: string;
@@ -11,7 +11,7 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
   const tabs = [
     { id: "home", label: "Home", icon: Home },
-    { id: "leaderboard", label: "Library", icon: BookOpen },
+    { id: "leaderboard", label: "Leaderboard", icon: Trophy },
     { id: "social", label: "Feed", icon: Compass },
     { id: "profile", label: "Profile", icon: User },
   ];

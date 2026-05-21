@@ -94,9 +94,13 @@ interface ReadoraStore {
   fontSize: "sm" | "base" | "lg" | "xl";
   readingBackground: "cream" | "sepia" | "obsidian";
   zenMusic: boolean;
+  isAuthenticated: boolean;
+  authToken: string | null;
   currentScreen: string; // Navigator string to switch views in mockup mode
 
   // Actions
+  login: (token: string) => void;
+  logout: () => void;
   addXp: (amount: number) => void;
   incrementReadTime: (mins: number) => void;
   completeDailyGoal: () => void;
@@ -297,9 +301,24 @@ export const useReadoraStore = create<ReadoraStore>((set, get) => ({
   fontSize: "base",
   readingBackground: "obsidian",
   zenMusic: false,
+  isAuthenticated: false,
+  authToken: null,
   currentScreen: "landing", // Starting screen on loading
 
   // Actions
+  login: (token) => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("readora_auth_token", token);
+    }
+    set({ isAuthenticated: true, authToken: token, currentScreen: "home" });
+  },
+  logout: () => {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("readora_auth_token");
+    }
+    set({ isAuthenticated: false, authToken: null, currentScreen: "landing" });
+  },
+
   addXp: (amount) => {
     set((state) => {
       const newXp = state.userXp + amount;
