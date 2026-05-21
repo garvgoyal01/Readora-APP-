@@ -72,9 +72,10 @@ button {
 
 /* Custom premium scrollbar style */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  display: none;
 }
+
+scrollbar-width: none;
 
 ::-webkit-scrollbar-track {
   background: #0F0F0F;
