@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Feather, User, Mail, Lock, Sparkles, CheckSquare } from "lucide-react";
+import { User, Mail, Lock, Sparkles, CheckSquare } from "lucide-react";
 import { useReadoraStore } from "@/store/useReadoraStore";
 
 interface ScreenProps {
@@ -41,8 +41,12 @@ export const SignupScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
 
       {/* Top Header */}
       <div className="flex justify-center items-center gap-2 mt-4 relative z-10">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#7C2D12] to-[#C46A2D] flex items-center justify-center border border-[#E6B566]/20">
-          <Feather className="w-4 h-4 text-[#F5F1E8]" />
+        <div className="w-11 h-11 rounded-2xl overflow-hidden border border-[#E6B566]/20 bg-[#151515]">
+          <img
+            src="/logo.png"
+            alt="Readora"
+            style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+          />
         </div>
         <span className="font-serif font-semibold tracking-widest text-[#F5F1E8] uppercase text-base">
           Readora

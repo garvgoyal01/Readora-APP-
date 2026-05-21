@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Feather } from "lucide-react";
 
 export const SplashScreen = () => {
   return (
@@ -16,8 +15,12 @@ export const SplashScreen = () => {
       >
         <div className="mx-auto w-fit rounded-3xl border border-white/10 bg-[#141414]/80 p-5 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-[#C46A2D] to-[#D97706] shadow-lg shadow-[#C46A2D]/25">
-              <Feather className="w-6 h-6 text-white" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-[#C46A2D] to-[#D97706] shadow-lg shadow-[#C46A2D]/25 overflow-hidden">
+              <img
+                src="/logo.png"
+                alt="Readora"
+                style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+              />
             </div>
             <div className="text-left">
               <p className="text-[10px] uppercase tracking-[0.3em] text-[#E6B566] font-semibold pb-1">
