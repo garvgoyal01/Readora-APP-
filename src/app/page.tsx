@@ -38,7 +38,7 @@ export default function Page() {
 
   return (
     <div className="min-h-[100dvh] h-[100dvh] w-full overflow-hidden bg-[#0F0F0F] text-[#F5F1E8]">
-      <header className="fixed inset-x-0 top-0 z-50 h-14 border-b border-[#2a2a2a] bg-[#0F0F0F]/95 backdrop-blur-sm">
+      <header className="fixed inset-x-0 top-0 z-9999 h-14 border-b border-[#1e1e1e] bg-[#0d0d0d] backdrop-blur-[10px]" style={{ width: '100%', left: 0, position: 'fixed' }}>
         <div className="mx-auto flex h-full items-center justify-start px-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#151515] border border-white/10 overflow-hidden">

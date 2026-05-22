@@ -49,7 +49,15 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-full bg-[#0F0F0F] text-[#F5F1E8] flex flex-col justify-between relative p-6 bg-grain pb-8">
+    <div
+      style={{
+        height: '100dvh',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+      className="bg-[#0F0F0F] text-[#F5F1E8] relative bg-grain"
+    >
       {/* Cinematic ambient glow */}
       <div className="absolute top-[-10%] right-[-10%] w-[120%] h-[50%] bg-gradient-to-b from-[#C46A2D]/15 via-[#8B7355]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
@@ -81,8 +89,8 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
         )}
       </AnimatePresence>
 
-      {/* Top indicator */}
-      <div className="flex justify-between items-center relative z-10">
+      {/* Top indicator - Progress Bar */}
+      <div className="flex justify-between items-center relative z-10 px-6 pt-4 pb-3 flex-shrink-0">
         <span className="text-[10px] text-[#A8A29E] tracking-widest uppercase font-semibold">
           Step {step} of 3
         </span>
@@ -99,7 +107,7 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-center py-6 relative z-10">
+      <div className="flex-1 flex flex-col justify-center px-6 pb-4 relative z-10 overflow-hidden">
         <AnimatePresence mode="wait">
           {step === 1 && (
             <motion.div
@@ -173,7 +181,16 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gridTemplateRows: 'repeat(3, 1fr)',
+                  gap: '12px',
+                  flex: 1,
+                  minHeight: 0,
+                }}
+              >
                 {[
                   { name: "Philosophy", desc: "Stoicism, metaphysics, logic" },
                   { name: "Art & Soul", desc: "Biography, poetry, creation" },
@@ -187,17 +204,18 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
                     <button
                       key={p.name}
                       onClick={() => togglePathway(p.name)}
-                      className={`p-4 rounded-2xl flex flex-col justify-between text-left border h-28 transition-all duration-200 active:scale-[0.99] relative overflow-hidden ${
+                      className={`p-3 rounded-2xl flex flex-col justify-between text-left border transition-all duration-200 active:scale-[0.99] relative overflow-hidden ${
                         active
                           ? "bg-[#C46A2D]/10 border-[#C46A2D]"
                           : "bg-white/5 border-white/5 hover:border-white/10"
                       }`}
+                      style={{ height: '100%' }}
                     >
                       <div className="flex justify-between items-center w-full">
-                        <span className="text-xs font-semibold text-[#F5F1E8]">{p.name}</span>
+                        <span className="text-sm font-semibold text-[#F5F1E8]">{p.name}</span>
                         {active && <Check className="w-3.5 h-3.5 text-[#C46A2D]" />}
                       </div>
-                      <span className="text-[9px] text-[#A8A29E] leading-relaxed font-light mt-auto">
+                      <span className="text-[11px] text-[#A8A29E] leading-snug font-light mt-auto">
                         {p.desc}
                       </span>
                     </button>
@@ -258,11 +276,11 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
       </div>
 
       {/* Bottom navigation buttons */}
-      <div className="flex gap-3 relative z-10">
+      <div className="flex gap-3 relative z-10 px-6 pt-3 pb-4 flex-shrink-0">
         {step > 1 && (
           <button
             onClick={() => setStep(step - 1)}
-            className="flex-1 py-4 border border-white/5 bg-white/5 text-[#D6D3CE] font-medium text-xs rounded-xl active:scale-[0.98] transition-transform"
+            className="flex-1 py-3 border border-white/5 bg-white/5 text-[#D6D3CE] font-medium text-xs rounded-xl active:scale-[0.98] transition-transform"
           >
             Back
           </button>
@@ -273,7 +291,7 @@ export const OnboardingScreen: React.FC<ScreenProps> = ({ onNavigate }) => {
             else handleFinish();
           }}
           disabled={step === 2 && selectedPathways.length === 0}
-          className="flex-[2] py-4 bg-gradient-to-r from-[#C46A2D] to-[#D97706] text-[#F5F1E8] font-medium text-xs rounded-xl flex items-center justify-center gap-1 active:scale-[0.98] transition-transform disabled:opacity-50"
+          className="flex-[2] py-3 bg-gradient-to-r from-[#C46A2D] to-[#D97706] text-[#F5F1E8] font-medium text-xs rounded-xl flex items-center justify-center gap-1 active:scale-[0.98] transition-transform disabled:opacity-50"
         >
           <span>{step === 3 ? "Complete Chamber Setup" : "Continue"}</span>
         </button>

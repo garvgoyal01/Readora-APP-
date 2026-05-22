@@ -113,3 +113,8 @@ button {
   background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
   background-size: 24px 24px;
 }
+
+/* Header z-index utility */
+.z-9999 {
+  z-index: 9999;
+}
